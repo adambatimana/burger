@@ -4,6 +4,7 @@ let connection = mysql.createConnection({
     host:"localhost",
     user:"root",
     password: "root",
+    port: "8889",
     database: "burgers_db"
 });
 
@@ -16,4 +17,4 @@ connection.connect(function(err){
 });
 
 
-// module.exports = connection;
+module.exports = connection;
