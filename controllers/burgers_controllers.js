@@ -9,7 +9,7 @@ module.exports = function(app){
     //======= GET REQUEST ========
     //============================
     app.get("/", function(req,res){
-        res.json(;)
+        res.json();
     });
 
     //============================
