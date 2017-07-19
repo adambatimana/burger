@@ -2,14 +2,14 @@ let connection = require("./connection.js");
 
 let orm =
           {
-            selectALL: function(){
-              
+            selectALL: function(whatToSelect, table){
+              //SELECT * FROM burgers
             },
-            insertOne: function(){
-
+            insertOne: function(table,whereToInsert){
+              //INSERT INTO burgers SET ?
             },
-            updateOne: function(){
-
+            updateOne: function(table,setAt,whereAT){
+              //UPDATE burgers SET ? WHERE ?
             }
           }
 
