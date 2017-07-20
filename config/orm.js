@@ -17,9 +17,9 @@ let orm =
                     console.log(result);
                   })
             },
-            updateOne: function(table,setAt,whereAT){
+            updateOne: function(table,setAt,where){
                   let queryString = "UPDATE ?? SET ?? WHERE ??";
-                  connection.query(queryString, [table,setAt,whereAt],
+                  connection.query(queryString, [table,setAt,where],
                   function(err,result){
                     console.log(result);
                   })

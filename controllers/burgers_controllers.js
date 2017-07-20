@@ -1,6 +1,6 @@
 let express = require("express");
 let burger = require("../models/burger.js");
-
+let path = require("path");
 const app = express();
 // const port = 8889;
 
@@ -12,8 +12,8 @@ module.exports = function(app){
       //burgerORM.select
       //burgerORM.insert
       //burgerORM.update
-
-        res.json();
+        res.sendFile(path.join(__dirname, "../public/test.html"));
+        // res.json();
     });
 
     //============================
