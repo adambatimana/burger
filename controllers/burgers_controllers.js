@@ -6,13 +6,16 @@ const app = express();
 
 module.exports = function(app){
 
+  //============================================
+  //=============== API ROUTES  ================
+  //============================================
+
     //============================
     //======= GET REQUEST ========
     //============================
     app.get("/api/all", function(req,res){
 
-        //test for HTML CONNECTION
-          // res.sendFile(path.join(__dirname, "../public/test.html"));
+
 
         //funciton to select all from burgers table
         burgerORM.select
@@ -40,5 +43,18 @@ module.exports = function(app){
 
       //burgerORM.update
 
-    })
+    });
+
+
+    //============================================
+    //=============== HTML ROUTE  ================
+    //============================================
+
+    app.get("/", function(req, res) {
+      //test for HTML CONNECTION
+        res.sendFile(path.join(__dirname, "../public/test.html"));
+      //SHOULD HAVE HANDLEBARS HTML INSERTED HERE
+    });
+
+
 };

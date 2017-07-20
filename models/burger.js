@@ -4,6 +4,7 @@ let orm = require("../config/orm.js");
 let burgerORM ={
     select: orm.selectALL("*","burgers"),
     insert: orm.insertOne(burgerName,ifDevoured,date),
+    
     //need to make sure this works with format in ORM.JS
     update: orm.updateOne("burgers","devoured","id")
 };
