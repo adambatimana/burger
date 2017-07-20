@@ -3,13 +3,26 @@ let connection = require("./connection.js");
 let orm =
           {
             selectALL: function(whatToSelect, table){
-              //SELECT * FROM burgers
+                  let queryString = "SELECT ?? FROM ??";
+                  console.log(queryString);
+                  connection.query(queryString, [whatToSelect,table],
+                  function(err,result){
+                    console.log(result)
+              })
             },
             insertOne: function(table,whereToInsert){
-              //INSERT INTO burgers SET ?
+                  let queryString = "INSERT INTO ?? SET ??";
+                  connection.query(queryString, [table,whereToInsert],
+                  function(err,result){
+                    console.log(result);
+                  })
             },
             updateOne: function(table,setAt,whereAT){
-              //UPDATE burgers SET ? WHERE ?
+                  let queryString = "UPDATE ?? SET ?? WHERE ??";
+                  connection.query(queryString, [table,setAt,whereAt],
+                  function(err,result){
+                    console.log(result);
+                  })
             }
           }
 

@@ -9,6 +9,10 @@ module.exports = function(app){
     //======= GET REQUEST ========
     //============================
     app.get("/", function(req,res){
+      //burgerORM.select
+      //burgerORM.insert
+      //burgerORM.update
+
         res.json();
     });
 

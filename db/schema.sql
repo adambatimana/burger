@@ -5,6 +5,7 @@
 -- burger_name: a string.
 -- devoured: a boolean.
 -- date: a TIMESTAMP.
+DROP DATABASE IF EXIST burgers_db;
 
 CREATE DATABASE burgers_db;
 

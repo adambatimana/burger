@@ -5,4 +5,4 @@ INSERT INTO burgers (burger_name, devoured, date) VALUES("BBQ BACON CHEESEBURGER
 
 INSERT INTO burgers (burger_name, devoured, date) VALUES("MUSHROOM SWISS BURGER",TRUE,CURRENT_TIMESTAMP);
 
-INSERT INTO burgers (burger_name, devoured, date) VALUES("Ma Ducra Special BURGER",TRUE,CURRENT_TIMESTAMP);
+INSERT INTO burgers (burger_name, devoured, date) VALUES("Ma Ducra Special BURGER",FALSE,CURRENT_TIMESTAMP);
