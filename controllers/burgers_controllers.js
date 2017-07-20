@@ -8,7 +8,7 @@ module.exports = function(app){
     //============================
     //======= GET REQUEST ========
     //============================
-    app.get("/", function(req,res){
+    app.get("/api/all", function(req,res){
       //burgerORM.select
       //burgerORM.insert
       //burgerORM.update
@@ -19,7 +19,7 @@ module.exports = function(app){
     //============================
     //======= POST REQUEST =======
     //============================
-    app.post("/", function(req,res){
+    app.post("/api/new", function(req,res){
       if (true) {
         res.json();
       } else {
