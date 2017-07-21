@@ -8,8 +8,15 @@
         <div class="col s6">
           <ul>
             {{#each burgerToDevour}}
-              <h2> {{this.id}} {{this.burger_name}} </h2>
+              <h2> {{id}} {{burger_name}} </h2>
+
               <!-- button for devour -->
+              formgroup
+              <input name={{id}} />
+              <button></button>
+
+
+
               <h3>DEVOUR IT!</h3>
             {{/each}}
           </ul>
@@ -18,7 +25,7 @@
         <div class="col s6">
           <ul>
             {{#each devoured}}
-              <h2> {{this.id}} {{this.burger_name}} </h2>
+              <h2> {{id}} {{burger_name}} </h2>
             {{/each}}
           </ul>
         </div>
@@ -26,7 +33,7 @@
 
     <div class="row">
       <div class="col s12">
-        <form>
+        <form method = "POST" action= "/api/new">
 
           <div class="form-group">
             <label for="burgerInput">Choose Wisely</label>
@@ -41,4 +48,3 @@
 
 
 </div>
-<script src="../public/assets/app.js"></script>

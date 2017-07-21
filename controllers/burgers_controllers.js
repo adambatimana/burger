@@ -14,9 +14,12 @@ module.exports = function(app){
     //======= GET REQUEST ========
     //============================
     app.get("/api/all", function(req,res){
-
+      console.log("Hit route");
         //funciton to select all from burgers table
         burger.all(function(data){
+          console.log("Console log for data")
+          console.log(data)
+          //res.json(data);
           //then send to HANDLEBARS
           res.render("index", { burgerToDevour: data })
         })
@@ -41,7 +44,8 @@ module.exports = function(app){
       burger.update(burgerBody.devoured,burgerBody.id)
     });
 
-
+    // app.put
+    // app.destroy
 //burgerORM.update
     //============================================
     //=============== HTML ROUTE  ================

@@ -2,16 +2,17 @@ let orm = require("../config/orm.js");
 
 //call ORM function using burger specific input for orm
 let burger={
-    all: function(burgers){
-      orm.selectALL("*","burgers")
+    all: function(callback){
+      console.log(callback);
+      orm.selectALL("*","burgers", callback)
     },
-    create: function(name,burgers){
+    create: function(name,callback){
       orm.createOne(name,false)
     },
     //need to make sure this works with format in ORM.JS
-    update: function(id,burgers){
+    update: function(id,callback){
       let condition = "id " + id;
-    orm.updateOne({devoured: true},condition)
+      orm.updateOne({devoured: true},condition)
     }
 };
 

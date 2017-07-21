@@ -6,10 +6,12 @@ let express = require("express");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const exphbs = require("express-handlebars");
+const path = require("path");
 
 const app = express();
 const PORT= 8000;
 
+app.use(express.static(path.join(__dirname, 'public')))
 // ===============================
 // ===== handlebars/exp setup ====
 // ===============================

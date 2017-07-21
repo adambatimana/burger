@@ -1,14 +1,15 @@
 let connection = require("./connection.js");
 
-let orm =
-          {
-            selectALL: function(whatToSelect, table){
+let orm ={
+  selectALL: function(whatToSelect, table, callback){
+      console.log(whatToSelect);
+      console.log(table);
                   let queryString = "SELECT ?? FROM ??";
                   console.log(queryString);
-                  connection.query(queryString, [whatToSelect,table],
+                  connection.query("SELECT * FROM burgers",
                   function(err,result){
-                    console.log(result);
-                    // result.json(result);
+                    if (err) {console.log(err)}
+                    callback(result);
               })
             },
             createOne: function(burgerName,ifDevoured){
