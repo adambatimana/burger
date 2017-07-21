@@ -16,9 +16,9 @@ module.exports = function(app){
     app.get("/api/all", function(req,res){
 
         //funciton to select all from burgers table
-        burgerORM.all(function(data){
+        burger.all(function(data){
           //then send to HANDLEBARS
-          res.render("index", { burgersToDevour: data })
+          res.render("index", { burgerToDevour: data })
         })
 
     });
@@ -31,14 +31,14 @@ module.exports = function(app){
       let burgerBody= req.body;
       console.log(burgerBody);
       //select name, if devoured and date from AJAX call from HTML and create for database
-      burgerORM.create(burgerBody.burger_name,burgerBody.devoured)
+      burger.create(burgerBody.burger_name,burgerBody.devoured)
 
       if (true) {
         res.json();
       } else {
         res.json();
       }
-      burgerORM.update(burgerBody.devoured,burgerBody.id)
+      burger.update(burgerBody.devoured,burgerBody.id)
     });
 
 

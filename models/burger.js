@@ -1,7 +1,7 @@
 let orm = require("../config/orm.js");
 
 //call ORM function using burger specific input for orm
-let burgerORM ={
+let burger={
     all: function(burgers){
       orm.selectALL("*","burgers")
     },
@@ -15,4 +15,4 @@ let burgerORM ={
     }
 };
 
-module.exports = burgerORM;//ORM FUNCTIONS
+module.exports = burger;//ORM FUNCTIONS
