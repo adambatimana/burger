@@ -7,12 +7,12 @@ let burger={
       orm.selectALL("*","burgers", callback)
     },
     create: function(name,callback){
-      orm.createOne(name,false)
+      orm.createOne(name,false,callback)
     },
     //need to make sure this works with format in ORM.JS
     update: function(id,callback){
       let condition = "id " + id;
-      orm.updateOne({devoured: true},condition)
+      orm.updateOne({devoured: true},condition,callback)
     }
 };
 

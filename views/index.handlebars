@@ -1,50 +1,51 @@
 <div class="container">
 
-    <div class="row">
-      <h1>EAT DA BURGER!</h1>
-    </div>
+  <div class="row">
+    <h1>EAT DA BURGER!</h1>
+  </div>
 
-    <div class="row">
-        <div class="col s6">
-          <ul>
-            {{#each burgerToDevour}}
-              <h2> {{id}} {{burger_name}} </h2>
+  <div class="row">
+    <div class="col s6">
 
-              <!-- button for devour -->
-              formgroup
-              <input name={{id}} />
-              <button></button>
+      {{#each burgerToDevour}}
+        <form class="" action="index.html" method="post">
 
-
-
-              <h3>DEVOUR IT!</h3>
-            {{/each}}
-          </ul>
-        </div>
-
-        <div class="col s6">
-          <ul>
-            {{#each devoured}}
-              <h2> {{id}} {{burger_name}} </h2>
-            {{/each}}
-          </ul>
-        </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12">
-        <form method = "POST" action= "/api/new">
-
-          <div class="form-group">
-            <label for="burgerInput">Choose Wisely</label>
-            <input type="text" class="form-control" id="burgerInput" placeholder="TYPE IN BURGER HERE.">
+          <!-- UPDATE NEW AJAX CALL -->
+          <div class="form-group  well well-lg">
+            <h2> {{id}}. {{burger_name}} </h2>
+            <button type="button" class="btn btn-danger" id="devourBtn">Devour it!</button>
           </div>
 
-          <button type="submit" class="btn btn-default" id="submitBtn">Submit</button>
-
         </form>
-      </div>
+
+      {{/each}}
+
     </div>
+
+    <div class="col s6">
+      <ul>
+        {{#each devoured}}
+          <h2> {{id}} {{burger_name}} </h2>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+
+      <form method="POST" action="/api/new">
+        <!-- CREATE NEW AJAX CALL -->
+        <div class="form-group">
+          <label for="burgerInput">Choose Wisely</label>
+          <input type="text" class="form-control" id="burgerInput" placeholder="TYPE IN BURGER HERE.">
+        </div>
+
+        <button type="submit" class="btn btn-default" id="submitBtn">Submit</button>
+
+      </form>
+    </div>
+  </div>
 
 
 </div>

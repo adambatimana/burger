@@ -2,8 +2,8 @@ let connection = require("./connection.js");
 
 let orm ={
   selectALL: function(whatToSelect, table, callback){
-      console.log(whatToSelect);
-      console.log(table);
+                  console.log(whatToSelect);
+                  console.log(table);
                   let queryString = "SELECT ?? FROM ??";
                   console.log(queryString);
                   connection.query("SELECT * FROM burgers",
@@ -12,23 +12,22 @@ let orm ={
                     callback(result);
               })
             },
-            createOne: function(burgerName,ifDevoured){
-                  let queryString = "INSERT INTO burgers (burger_name, devoured, date) VALUES (??,??,CURRENT_TIMESTAMP)";
-                    connection.query(queryString, [burgerName,ifDevoured],
+            createOne: function(burgerName,ifDevoured,callback){
+                  let queryString = "INSERT INTO burgers (burger_name, devoured, date) VALUES (??,??,??)";
+                    connection.query(queryString, [burgerName,ifDevoured,CURRENT_TIMESTAMP],
                         function(err,result){
-                            console.log(result);
-                            // result.json(result);
-                            // res.end();
+                          if (err) {console.log(err)}
+                          callback(result);
                         });//end connection
             },
-            updateOne: function(setAt,where){
+            updateOne: function(setAt,where,callback){
 
                   //QUESTIONABLE format for UPDATE function
                   let queryString = "UPDATE burgers SET ?? WHERE id = ??";
                   connection.query(queryString, [setAt,where],
                   function(err,result){
-                    console.log(result);
-                    // result.json(result);
+                      if (err) {console.log(err)}
+                      callback(result);
                   })
             }
           }
