@@ -8,16 +8,15 @@ let orm =
                   connection.query(queryString, [whatToSelect,table],
                   function(err,result){
                     console.log(result);
-                    res.json(result);
+                    // result.json(result);
               })
             },
-            insertOne: function(burgerName,ifDevoured,date){
-              console.log("BURGER Data:");
-                  let queryString = "INSERT INTO burgers (burger_name, devoured, date) VALUES (??,??,??)";
-                    connection.query(queryString, [burgerName,ifDevoured,date],
+            createOne: function(burgerName,ifDevoured){
+                  let queryString = "INSERT INTO burgers (burger_name, devoured, date) VALUES (??,??,CURRENT_TIMESTAMP)";
+                    connection.query(queryString, [burgerName,ifDevoured],
                         function(err,result){
                             console.log(result);
-                            res.json(result);
+                            // result.json(result);
                             // res.end();
                         });//end connection
             },
@@ -28,7 +27,7 @@ let orm =
                   connection.query(queryString, [table,setAt,where],
                   function(err,result){
                     console.log(result);
-                    res.json(result);
+                    // result.json(result);
                   })
             }
           }

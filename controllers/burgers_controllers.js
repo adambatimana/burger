@@ -14,7 +14,7 @@ module.exports = function(app){
     //======= GET REQUEST ========
     //============================
     app.get("/api/all", function(req,res){
-
+        
         //funciton to select all from burgers table
         burgerORM.select(function(data){
           res.render("index", { burgersToDevour: data })
