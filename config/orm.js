@@ -20,11 +20,11 @@ let orm =
                             // res.end();
                         });//end connection
             },
-            updateOne: function(table,setAt,where){
+            updateOne: function(setAt,where){
 
                   //QUESTIONABLE format for UPDATE function
-                  let queryString = "UPDATE ?? SET ?? WHERE ??";
-                  connection.query(queryString, [table,setAt,where],
+                  let queryString = "UPDATE burgers SET ?? WHERE id = ??";
+                  connection.query(queryString, [setAt,where],
                   function(err,result){
                     console.log(result);
                     // result.json(result);

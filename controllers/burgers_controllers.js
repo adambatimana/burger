@@ -14,13 +14,13 @@ module.exports = function(app){
     //======= GET REQUEST ========
     //============================
     app.get("/api/all", function(req,res){
-        
+
         //funciton to select all from burgers table
-        burgerORM.select(function(data){
+        burgerORM.all(function(data){
+          //then send to HANDLEBARS
           res.render("index", { burgersToDevour: data })
         })
 
-        //then send to HANDLEBARS???
     });
 
     //============================
@@ -30,22 +30,19 @@ module.exports = function(app){
 
       let burgerBody= req.body;
       console.log(burgerBody);
-
       //select name, if devoured and date from AJAX call from HTML and create for database
-      burgerORM.insert(burgerBody.burger_name,burgerBody.devoured,burgerBody.date)
-
+      burgerORM.create(burgerBody.burger_name,burgerBody.devoured)
 
       if (true) {
         res.json();
       } else {
         res.json();
       }
-
-      //burgerORM.update
-
+      burgerORM.update(burgerBody.devoured,burgerBody.id)
     });
 
 
+//burgerORM.update
     //============================================
     //=============== HTML ROUTE  ================
     //============================================
