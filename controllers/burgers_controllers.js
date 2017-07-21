@@ -15,10 +15,10 @@ module.exports = function(app){
     //============================
     app.get("/api/all", function(req,res){
 
-
-
         //funciton to select all from burgers table
-        burgerORM.select
+        burgerORM.select(function(data){
+          res.render("index", { burgersToDevour: data })
+        })
 
         //then send to HANDLEBARS???
     });
