@@ -13,51 +13,56 @@ module.exports = function(app) {
   //============================
   //======= GET REQUEST ========
   //============================
-  app.get("/api/all", function(req, res) {
-    console.log("Hit route");
-    //funciton to select all from burgers table
-    burger.all(function(data) {
-      console.log("Console log for data")
-      console.log(data)
-      //res.json(data);
-      //then send to HANDLEBARS
-      res.render("index", {
-        burgerToDevour: data
-      })
-    })
 
+  app.get("/", function(req, res) {
+          res.redirect("/burgers")
+  })
+
+  app.get("/burgers", function(req, res) {
+        console.log("Hit route");
+        //funciton to select all from burgers table
+        burger.all(function(data) {
+          console.log("Console log for data")
+          console.log(data)
+          //res.json(data);
+          //then send to HANDLEBARS
+          res.render("index", {
+            burgerToDevour: data
+          })
+        })
   });
 
   //============================
   //======= POST REQUEST =======
   //============================
-  app.post("/api/new", function(req, res) {
-
-    let burgerBody = req.body;
-    console.log(burgerBody);
+  app.post("/burgers/new", function(req, res) {
+    console.log(req.body);
     //select name, if devoured and date from AJAX call from HTML and create for database
-    burger.create(burgerBody.burger_name, burgerBody.devoured)
-
-    if (true) {
-      res.json();
-    } else {
-      res.json();
-    }
-    burger.update(burgerBody.devoured, burgerBody.id)
+        burger.create(req.params.burger_name, function(result){
+            console.log(result);
+            res.redirect("/");
+        });
   });
 
-  // app.put
-  // app.destroy
-  //burgerORM.update
-  //============================================
-  //=============== HTML ROUTE  ================
-  //============================================
 
-  app.get("/", function(req, res) {
-    //test for HTML CONNECTION
-    res.sendFile(path.join(__dirname, "../public/test.html"));
-    //SHOULD HAVE HANDLEBARS HTML INSERTED HERE
+  //============================
+  //======= PUT REQUEST =======
+  //============================
+  app.put("/burgers/update", function(req,res){
+      burger.update(req.body.burger_id, function(result){
+        console.log(result);
+        res.redirect("/");
+      })
   });
+
+  //============================================
+  //=============== TEST ROUTE  ================
+  //============================================
+  // app.get("/", function(req, res) {
+  //   //test for HTML CONNECTION
+  //   res.sendFile(path.join(__dirname, "../public/test.html"));
+  //   //SHOULD HAVE HANDLEBARS HTML INSERTED HERE
+  // });
 
 
 };

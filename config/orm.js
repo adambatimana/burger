@@ -13,8 +13,8 @@ let orm ={
               })
             },
             createOne: function(burgerName,ifDevoured,callback){
-                  let queryString = "INSERT INTO burgers (burger_name, devoured, date) VALUES (??,??,??)";
-                    connection.query(queryString, [burgerName,ifDevoured,CURRENT_TIMESTAMP],
+                  let queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (??,??)";
+                    connection.query(queryString, [burgerName,ifDevoured],
                         function(err,result){
                           if (err) {console.log(err)}
                           callback(result);
